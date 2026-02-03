@@ -16,7 +16,6 @@
   - openCR : 로봇팔 및 eep 구동용
   - stm32 : 주행부 구동용
 
- (St)기능2를 위한 손목 인식에 사용 / (2)자율주행 및 기능1에 사용
 
 ## 실행방법
 
@@ -52,6 +51,8 @@ rosrun rosserial_python serial_node.py /dev/ttyACM* __name:=rosserial_opencr
 rosrun rosserial_python serial_node.py /dev/ttyACM* __name:=rosserial_stm32
 ```
 udev-rule 설정으로 포트 이름 지정 가능
+
+mcu 코드가 업로드 되어있어야 함 (mcu_code 참조)
 
 
 
