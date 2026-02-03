@@ -37,4 +37,5 @@ multimaster_fkie
 
 cartographer
 
-[cartographer](https://google-cartographer.readthedocs.io/en/latest/)
+[cartographer]([https://google-cartographer.readthedocs.io/en/latest/](https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html))
+[cartographer-git](https://github.com/cartographer-project/cartographer_ros)
