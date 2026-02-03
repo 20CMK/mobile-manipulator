@@ -1,0 +1,38 @@
+<launch>
+  <!-- Argument: 로드할 맵 및 설정 파일 경로 지정 -->
+  <arg name="load_state_filename" default="/home/mk/slam_ws/src/cartographer_ros/cartographer_ros/maps/map.pbstream" />
+  <arg name="yaml_map_filename" default="/home/mk     /slam_ws/src/cartographer_ros/cartographer_ros/maps/map.yaml" />
+
+  <!-- 실시간 센서 기반으로 동작 -->
+  <param name="use_sim_time" value="false"/>
+
+  <!-- Cartographer Localization 노드 -->
+  <node name="cartographer_node"
+        pkg="cartographer_ros"
+        type="cartographer_node"
+        output="screen"
+        args="-configuration_directory $(find cartographer_ros)/configuration_files
+              -configuration_basename my_robot_localization.lua
+              -load_state_filename $(arg load_state_filename)">
+    <remap from="scan" to="/scan"/>
+    <remap from="imu" to="/camera/imu"/>
+    <remap from="odom" to="/odom"/>
+    <remap from="/initialpose" to="/initialpose"/>  <!-- 추가된 부분 -->
+  </node>
+
+  <!-- Occupancy Grid 퍼블리셔 (선택 사항) -->
+  <node name="cartographer_occupancy_grid_node"
+        pkg="cartographer_ros"
+        type="cartographer_occupancy_grid_node"
+        output="screen">
+    <param name="resolution" value="0.05"/>
+    <param name="publish_period_sec" value="1.0"/>
+  </node>
+
+  <!-- .pgm + .yaml 맵 로드 (move_base용) -->
+  <node name="map_server"
+        pkg="map_server"
+        type="map_server"
+        args="$(arg yaml_map_filename)"
+        output="screen" />
+</launch>

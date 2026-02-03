@@ -1,0 +1,14 @@
+<launch>
+    <!-- MoveIt Demo 실행 -->
+    <include file="$(find mw_ahrs_ros)/launch/mw_ahrs.launch" />
+
+    <!-- 카메라 및 손목 추적 퍼블리셔 -->
+    <!-- <node name="camera_publisher" pkg="hand_controlled_robot_arm" type="hand_controlled_robot_arm.py" output="screen" />     -->
+    <!-- <node name="target_switch_publisher" pkg="hand_controlled_robot_arm" type="target_switch.py" output="screen" />     -->
+    <!-- <node name="gripper_serial_bridge" pkg="hand_controlled_robot_arm" type="gripper_cmd_serial_bridge.py" output="screen" />     -->
+    <!--<node name="serial_home_pose_publisher" pkg="hand_controlled_robot_arm" type="switch_com.py" output="screen" />-->
+    <!-- <node name="camera_publisher" pkg="hand_controlled_robot_arm" type="test_hand.py" output="screen" />     -->
+    <node name="camera_publisher" pkg="hand_controlled_robot_arm" type="upgrade_hand.py" output="screen" />    
+    <node name="target_switch_publisher" pkg="hand_controlled_robot_arm" type="key_target.py" output="screen" />    
+</launch>
+

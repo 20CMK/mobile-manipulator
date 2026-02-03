@@ -1,0 +1,219 @@
+# base_local_planner: "dwa_local_planner/DWAPlannerROS"
+
+# DWAPlannerROS:
+#   # ===== 속도 제한 설정 =====
+#   max_vel_x: 1.3
+#   min_vel_x: -0.7
+#   max_vel_theta: 2.0
+#   min_vel_theta: -2.0
+#   min_in_place_vel_theta: 1.0
+
+#   acc_lim_x: 1.6
+#   acc_lim_theta: 10.0
+#   acc_lim_y: 0.0
+
+#   # ===== 로봇 특성 =====
+#   holonomic_robot: false
+
+#   # ===== 목표 위치 도달 조건 =====
+#   yaw_goal_tolerance: 0.05
+#   xy_goal_tolerance: 0.10
+#   latch_xy_goal_tolerance: true
+
+#   # ===== 경로 평가 =====
+#   path_distance_bias: 30.0          # global path 추종 성향 ↑
+#   goal_distance_bias: 10.0          # goal 도달 성향 ↓
+#   occdist_scale: 0.01
+
+#   forward_point_distance: 0.4       # 전방 점수를 높여 전진 복귀 유도
+#   stop_time_buffer: 0.6
+#   scaling_speed: 0.25
+#   max_scaling_factor: 0.1
+
+#   # ===== trajectory 샘플링 =====
+#   vx_samples: 30
+#   vtheta_samples: 40
+#   sim_time: 1.5                      # 예측 경로 길이 줄임
+#   sim_granularity: 0.10
+#   angular_sim_granularity: 0.05
+
+#   # ===== 기타 옵션 =====
+#   prune_plan: false
+#   penalize_negative_x: false         # 후진은 하되 점수는 낮게
+
+
+# base_local_planner: "dwa_local_planner/DWAPlannerROS"
+
+# DWAPlannerROS:
+#   # 속도 제한 설정
+#   max_vel_x: 1.3
+#   min_vel_x: -0.2
+#   max_vel_theta: 2.0
+#   min_vel_theta: -2.0
+#   min_in_place_vel_theta: 0.7
+
+#   acc_lim_x: 1.0
+#   acc_lim_theta: 2.0
+#   acc_lim_y: 0.0
+
+#   # 로봇 특성
+#   holonomic_robot: false
+
+#   # 목표 위치 도달 조건
+#   yaw_goal_tolerance: 0.05
+#   xy_goal_tolerance: 0.05
+#   latch_xy_goal_tolerance: true
+
+#   # 경로 평가 가중치
+#   path_distance_bias: 30.0
+#   goal_distance_bias: 14.0
+#   occdist_scale: 0.05
+
+#   forward_point_distance: 0.3
+#   stop_time_buffer: 1.0
+#   scaling_speed: 0.25
+#   max_scaling_factor: 0.1
+
+#   # trajectory 샘플링
+#   vx_samples: 30
+#   vtheta_samples: 40
+#   sim_time: 2.0
+#   sim_granularity: 0.10
+#   angular_sim_granularity: 0.05
+
+#   # 기타 옵션
+#   prune_plan: true
+#   penalize_negative_x: false
+
+
+base_local_planner: "dwa_local_planner/DWAPlannerROS"
+
+DWAPlannerROS:
+  # ===== 속도 제한 설정 =====
+  max_vel_x: 1.3                     # 최대 전진 속도
+  min_vel_x: -0.7                    # 최대 후진 속도
+  max_vel_theta: 2.0                 # 최대 회전 속도 (rad/s)
+  min_vel_theta: -2.0                # 최소 회전 속도 (rad/s)
+  min_in_place_vel_theta: 1.4        # 제자리 회전 최소 속도
+
+  acc_lim_x: 1.3                     # x축 가속도 제한
+  acc_lim_theta: 4.0                # 회전 가속도 제한
+  acc_lim_y: 0.0                     # 비홀로노믹 → y축 없음
+
+  # ===== 로봇 특성 =====
+  holonomic_robot: false
+
+  # ===== 목표 위치 도달 조건 =====
+  yaw_goal_tolerance: 0.07           # 목표 방향 오차 허용
+  xy_goal_tolerance: 0.20            # 목표 위치 오차 허용
+  latch_xy_goal_tolerance: true      # 위치 도달 후 yaw 정렬
+
+  # ===== 경로 평가 =====
+  path_distance_bias: 3.0           # 글로벌 경로 추종 가중치
+  goal_distance_bias: 10.0           # 목표점 접근 가중치
+  occdist_scale: 0.02                # 장애물 회피 비용 가중치
+
+  forward_point_distance: 0.6        # 전방 기준 거리
+  stop_time_buffer: 1.0              # 충돌 회피 여유 시간
+  scaling_speed: 0.25
+  max_scaling_factor: 0.2
+
+  # ===== trajectory 샘플링 =====
+  vx_samples: 20
+  vtheta_samples: 20
+  sim_time: 3.5
+  sim_granularity: 0.1
+  angular_sim_granularity: 0.1
+
+  # ===== 기타 옵션 =====
+  prune_plan: false
+  penalize_negative_x: false         # 후진 허용 (점수 페널티 제거)
+
+
+
+
+
+#   base_local_planner: "dwa_local_planner/DWAPlannerROS"
+
+# DWAPlannerROS:
+#   # ===== 속도 제한 설정 =====
+#   max_vel_x: 1.6                     # 최대 전진 속도
+#   min_vel_x: -0.7                    # 최대 후진 속도
+#   max_vel_theta: 2.0                 # 최대 회전 속도 (rad/s)
+#   min_vel_theta: -2.0                # 최소 회전 속도 (rad/s)
+#   min_in_place_vel_theta: 0.7        # 제자리 회전 최소 속도
+
+#   acc_lim_x: 1.6                     # x축 가속도 제한
+#   acc_lim_theta: 10.0                # 회전 가속도 제한
+#   acc_lim_y: 0.0                     # y축 이동 없음 (비홀로노믹)
+
+#   # ===== 로봇 특성 =====
+#   holonomic_robot: false             # 비홀로노믹
+
+#   # ===== 목표 위치 도달 조건 =====
+#   yaw_goal_tolerance: 0.02           # 목표 yaw 오차 허용 (라디안, 약 1.1도)
+#   xy_goal_tolerance: 0.20            # 목표 위치 오차 허용 (m)
+#   latch_xy_goal_tolerance: true      # 위치 도달 후 yaw만 정렬
+
+#   # ===== 경로 평가 =====
+#   path_distance_bias: 35.0           # 글로벌 경로 추종 가중치 (↑)
+#   goal_distance_bias: 10.0           # 목표점 접근 가중치 (↓)
+#   occdist_scale: 0.05                # 장애물 회피 비용 가중치
+
+#   forward_point_distance: 0.6        # 전방 기준 거리 증가 → 전진 선호
+#   stop_time_buffer: 0.6              # 충돌 회피 여유 시간 (s)
+#   scaling_speed: 0.25                # 속도에 따른 인식 거리 확장 기준
+#   max_scaling_factor: 0.2            # 장애물 인식 확장 최대 배율
+
+#   # ===== trajectory 샘플링 =====
+#   vx_samples: 20                     # 전진 속도 샘플 개수
+#   vtheta_samples: 20                 # 회전 속도 샘플 개수 (↑ 정밀 회전)
+#   sim_time: 2.5                      # 시뮬레이션 예측 시간 감소 → 불필요한 긴 후진 방지
+#   sim_granularity: 0.1               # 경로 점 간격 (m)
+#   angular_sim_granularity: 0.10      # 회전 경로 점 간격 (rad)
+
+#   # ===== 기타 옵션 =====
+#   prune_plan: false                  # 글로벌 경로 유지
+#   penalize_negative_x: true          # 후진 허용하되 점수는 낮게 → 전진 복귀 유도
+
+# base_local_planner:
+#   base_local_planner: "base_local_planner/TrajectoryPlannerROS"
+
+#   TrajectoryPlannerROS:
+#     # === 기본 설정 ===
+#     meter_scoring: true
+#     holonomic_robot: false
+
+#     # === 선속도 제한 ===
+#     max_vel_x: 0.2                 # 최대 전진 속도
+#     min_vel_x: -0.4                # 최대 후진 속도 (탈출 시 사용)
+#     escape_vel: -0.4               # stuck 시 후진 탈출 속도
+
+#     # === 회전 속도 제한 ===
+#     max_rotational_vel: 1.0        # 최대 회전 속도
+#     min_in_place_rotational_vel: 0.3
+
+#     # === 가속도 제한 ===
+#     acc_lim_x: 0.5                 # x축 가속도 제한
+#     acc_lim_theta: 1.5             # 회전 가속도 제한
+#     acc_lim_y: 0.0                 # 비홀로노믹 로봇의 경우 0.0
+
+#     # === 목표 도달 허용 오차 ===
+#     yaw_goal_tolerance: 0.1        # 회전 허용 오차 (라디안)
+#     xy_goal_tolerance: 0.15        # 위치 허용 오차 (미터)
+#     latch_xy_goal_tolerance: true  # 목표점 인식 후 유지 여부
+
+#     # === 탈출 동작 및 진동 방지 설정 ===
+#     escape_vel: -0.4               # 후진 탈출 속도
+#     escape_reset_dist: 0.05        # 탈출 인정 거리 (기존: 0.1)
+#     escape_reset_theta: 0.05       # 탈출 인정 회전 각도 (기존: 0.1)
+#     oscillation_reset_dist: 0.05   # 진동 상태 해제 거리 (기존: 0.1)
+
+#     # === 시뮬레이션 설정 ===
+#     dwa: false                     # trajectory 기반 경로 샘플링
+#     sim_time: 2.0                  # 시뮬레이션 시간 (초)
+#     sim_granularity: 0.03          # 시뮬레이션 간격 (작을수록 trajectory 정밀)
+#     vx_samples: 30                 # 선속도 샘플 수
+#     vtheta_samples: 40             # 회전 속도 샘플 수
+
+

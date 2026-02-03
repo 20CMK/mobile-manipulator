@@ -1,0 +1,776 @@
+<?xml version="1.0" ?>
+<robot name="manipulator_mobile" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find manipulator_mobile_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find manipulator_mobile_description)/urdf/manipulator_mobile.trans" />
+<xacro:include filename="$(find manipulator_mobile_description)/urdf/manipulator_mobile.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.19952062113198715 1.2555567224678475e-16 0.4710369077685212" rpy="0 0 0"/>
+    <mass value="75.10326613876416"/>
+    <inertia ixx="8.264893" iyy="10.637785" izz="10.208263" ixy="0.0" iyz="0.0" ixz="0.034941"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="end_effector_1">
+  <inertial>
+    <origin xyz="0.1327524756122964 0.0017703526400168245 -0.025066962798466763" rpy="0 0 0"/>
+    <mass value="0.48128789009776335"/>
+    <inertia ixx="0.000509" iyy="0.001717" izz="0.001904" ixy="0.000167" iyz="-1.8e-05" ixz="0.000286"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.167 -0.0 -1.6855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/end_effector_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.167 -0.0 -1.6855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/end_effector_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link1_1">
+  <inertial>
+    <origin xyz="0.02329151955957471 4.629389793283847e-06 0.050284842546032715" rpy="0 0 0"/>
+    <mass value="0.4900376685569601"/>
+    <inertia ixx="0.000883" iyy="0.000869" izz="0.00079" ixy="-0.0" iyz="-0.0" ixz="-0.000125"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.8545" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/link1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.8545" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/link1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link2_1">
+  <inertial>
+    <origin xyz="0.05206043728074525 -1.337440282261406e-06 0.19878121799543658" rpy="0 0 0"/>
+    <mass value="1.8975921907435775"/>
+    <inertia ixx="0.025896" iyy="0.026106" izz="0.002627" ixy="-0.0" iyz="0.0" ixz="0.000983"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.061 -0.0 -0.9145" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/link2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.061 -0.0 -0.9145" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/link2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link3_1">
+  <inertial>
+    <origin xyz="-0.039863178643481684 -2.9105059579375337e-08 0.1699212270130337" rpy="0 0 0"/>
+    <mass value="1.1408697243617556"/>
+    <inertia ixx="0.012245" iyy="0.012276" izz="0.001034" ixy="-0.0" iyz="-0.0" ixz="-0.000142"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.06 -0.0 -1.2645" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/link3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.06 -0.0 -1.2645" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/link3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link4_1">
+  <inertial>
+    <origin xyz="0.04215219503856503 0.0001327789388938608 0.015071909461665145" rpy="0 0 0"/>
+    <mass value="0.23472223133516662"/>
+    <inertia ixx="0.000211" iyy="0.000259" izz="0.000242" ixy="1e-06" iyz="-0.0" ixz="-4.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.061 -0.0 -1.5845" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/link4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.061 -0.0 -1.5845" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/link4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link5_1">
+  <inertial>
+    <origin xyz="0.01507227494005943 -0.0001327774429667492 0.042152787615013176" rpy="0 0 0"/>
+    <mass value="0.23472487581420393"/>
+    <inertia ixx="0.000242" iyy="0.00026" izz="0.000211" ixy="0.0" iyz="-1e-06" ixz="-4.7e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.116 -0.0 -1.6305" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/link5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.116 -0.0 -1.6305" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/link5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link6_1">
+  <inertial>
+    <origin xyz="0.0025000002681728473 4.440892098500626e-16 1.3410983434880563e-10" rpy="0 0 0"/>
+    <mass value="0.019247909870013943"/>
+    <inertia ixx="1.1e-05" iyy="6e-06" izz="6e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.162 -0.0 -1.6855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/link6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.162 -0.0 -1.6855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/link6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camara_braket_v1_1">
+  <inertial>
+    <origin xyz="-0.017734585442181205 -1.1024611193289132e-15 0.009405151619207963" rpy="0 0 0"/>
+    <mass value="0.043848269089731724"/>
+    <inertia ixx="1.1e-05" iyy="9e-06" izz="1e-05" ixy="-0.0" iyz="-0.0" ixz="4e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.166 -0.0 -1.7255" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/camara_braket_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.166 -0.0 -1.7255" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/camara_braket_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_motor_1">
+  <inertial>
+    <origin xyz="-3.0531133177191805e-16 0.10501183303953161 -5.551115123125783e-17" rpy="0 0 0"/>
+    <mass value="4.799868753504026"/>
+    <inertia ixx="0.022362" iyy="0.002045" izz="0.022362" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.04 0.22 -0.1085" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/right_motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.04 0.22 -0.1085" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/right_motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_motor_1">
+  <inertial>
+    <origin xyz="-8.81239525796218e-16 -0.10501183303953023 -1.1102230246251565e-16" rpy="0 0 0"/>
+    <mass value="4.799868753504026"/>
+    <inertia ixx="0.022362" iyy="0.002045" izz="0.022362" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.04 -0.22 -0.1085" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/left_motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.04 -0.22 -0.1085" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/left_motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="-3.1388816185140556e-08 -0.0029999999999985594 -7.680700730011703e-07" rpy="0 0 0"/>
+    <mass value="0.9281077157301286"/>
+    <inertia ixx="0.003746" iyy="0.00719" izz="0.003746" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.04 0.2499 -0.1085" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.04 0.2499 -0.1085" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="-3.138881572717356e-08 0.003000000000000058 -7.680700729872925e-07" rpy="0 0 0"/>
+    <mass value="0.9281077157301286"/>
+    <inertia ixx="0.003746" iyy="0.00719" izz="0.003746" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.04 -0.2499 -0.1085" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.04 -0.2499 -0.1085" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_bracket_1">
+  <inertial>
+    <origin xyz="-0.02999997569349227 -0.01696771466992436 -0.03487308000674122" rpy="0 0 0"/>
+    <mass value="6.825263731133592"/>
+    <inertia ixx="0.01222" iyy="0.022231" izz="0.014583" ixy="0.0" iyz="0.002155" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.07 -0.21 -0.2185" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/left_bracket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.07 -0.21 -0.2185" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/left_bracket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="D435i_manipulator_1">
+  <inertial>
+    <origin xyz="0.012450098793437364 -0.02138841195353528 -2.78978406798025e-05" rpy="0 0 0"/>
+    <mass value="0.3592851527909228"/>
+    <inertia ixx="0.000217" iyy="3.3e-05" izz="0.000219" ixy="3e-06" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1395 -0.0225 -1.748" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/D435i_manipulator_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1395 -0.0225 -1.748" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/D435i_manipulator_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rpassive_bracket_1">
+  <inertial>
+    <origin xyz="-1.4959483437992915e-05 -0.007824157857276859 -0.031123165453279866" rpy="0 0 0"/>
+    <mass value="7.952128626407531"/>
+    <inertia ixx="0.017098" iyy="0.013827" izz="0.013943" ixy="-9e-06" iyz="0.00246" ixz="3e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.47 0.21 -0.2185" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/rpassive_bracket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.47 0.21 -0.2185" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/rpassive_bracket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lpassive_bracket_1">
+  <inertial>
+    <origin xyz="1.4959483438770071e-05 0.007824157857276859 -0.031123165453279922" rpy="0 0 0"/>
+    <mass value="7.952128626407531"/>
+    <inertia ixx="0.017098" iyy="0.013827" izz="0.013943" ixy="-9e-06" iyz="-0.00246" ixz="-3e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.47 -0.21 -0.2185" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/lpassive_bracket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.47 -0.21 -0.2185" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/lpassive_bracket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rpassive_connect_1">
+  <inertial>
+    <origin xyz="-0.0114104318509054 -5.551115123125783e-17 -0.0245830097390186" rpy="0 0 0"/>
+    <mass value="0.4694808530871274"/>
+    <inertia ixx="0.00041" iyy="0.000347" izz="0.000322" ixy="-0.0" iyz="0.0" ixz="-9.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.47 0.195 -0.12" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/rpassive_connect_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.47 0.195 -0.12" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/rpassive_connect_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lpassive_connect_1">
+  <inertial>
+    <origin xyz="-0.011410431850903624 0.0 -0.024583009739018627" rpy="0 0 0"/>
+    <mass value="0.4694808530871274"/>
+    <inertia ixx="0.00041" iyy="0.000347" izz="0.000322" ixy="0.0" iyz="0.0" ixz="-9.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.47 -0.195 -0.12" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/lpassive_connect_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.47 -0.195 -0.12" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/lpassive_connect_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_passive_wheel_1">
+  <inertial>
+    <origin xyz="2.4980018054066022e-15 -0.020000000000000046 0.0" rpy="0 0 0"/>
+    <mass value="0.284376967002948"/>
+    <inertia ixx="0.000211" iyy="0.000349" izz="0.000211" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.5 -0.215 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/left_passive_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.5 -0.215 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/left_passive_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_passive_wheel_1">
+  <inertial>
+    <origin xyz="8.326672684688674e-16 0.019999999999999934 -6.245004513516506e-17" rpy="0 0 0"/>
+    <mass value="0.284376967002948"/>
+    <inertia ixx="0.000211" iyy="0.000349" izz="0.000211" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.5 0.215 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/right_passive_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.5 0.215 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/right_passive_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mobile_camera_bracket_1">
+  <inertial>
+    <origin xyz="0.004942753837221897 -3.759842688763246e-15 0.002533142702930591" rpy="0 0 0"/>
+    <mass value="0.3999540269989036"/>
+    <inertia ixx="0.000776" iyy="4.5e-05" izz="0.000738" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.2 -0.0 -0.7935" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/mobile_camera_bracket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.2 -0.0 -0.7935" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/mobile_camera_bracket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_link_1">
+  <inertial>
+    <origin xyz="0.012450098659360725 0.023611588046464137 -2.789797479496592e-05" rpy="0 0 0"/>
+    <mass value="0.3592851527909228"/>
+    <inertia ixx="0.000217" iyy="3.3e-05" izz="0.000219" ixy="3e-06" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.21 0.0225 -0.7935" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/camera_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.21 0.0225 -0.7935" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/camera_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_link_1">
+  <inertial>
+    <origin xyz="-0.015000000000000013 0.0 0.007500000000000007" rpy="0 0 0"/>
+    <mass value="0.09812499999999999"/>
+    <inertia ixx="2.1e-05" iyy="2.1e-05" izz="4.1e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.185 -0.0 -0.2485" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/imu_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.185 -0.0 -0.2485" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/imu_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_link_1">
+  <inertial>
+    <origin xyz="0.0 -7.237528875152536e-18 0.009999999999999898" rpy="0 0 0"/>
+    <mass value="1.2330751165339937"/>
+    <inertia ixx="0.000812" iyy="0.000812" izz="0.001541" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.2 -0.0 -0.5735" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.2 -0.0 -0.5735" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_bracket_1">
+  <inertial>
+    <origin xyz="-0.030000024306509138 0.016967714669925832 -0.034873080006741164" rpy="0 0 0"/>
+    <mass value="6.825263731133592"/>
+    <inertia ixx="0.01222" iyy="0.022231" izz="0.014583" ixy="0.0" iyz="-0.002155" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.07 0.21 -0.2185" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/right_bracket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.07 0.21 -0.2185" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/right_bracket_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="manipulator_base_link_1">
+  <inertial>
+    <origin xyz="0.0010976940775665495 3.690543619434193e-06 0.012362669718837593" rpy="0 0 0"/>
+    <mass value="0.6100635261849091"/>
+    <inertia ixx="0.00092" iyy="0.00103" izz="0.001656" ixy="0.0" iyz="-0.0" ixz="3.1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.8135" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/manipulator_base_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.8135" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://manipulator_mobile_description/meshes/manipulator_base_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="fixed_link6_ef" type="fixed">
+  <origin xyz="0.005 0.0 0.0" rpy="0 0 0"/>
+  <parent link="link6_1"/>
+  <child link="end_effector_1"/>
+</joint>
+
+<joint name="joint1" type="continuous">
+  <origin xyz="0.0 0.0 0.041" rpy="0 0 0"/>
+  <parent link="manipulator_base_link_1"/>
+  <child link="link1_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="joint2" type="continuous">
+  <origin xyz="0.061 0.0 0.06" rpy="0 0 0"/>
+  <parent link="link1_1"/>
+  <child link="link2_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="joint3" type="continuous">
+  <origin xyz="-0.001 0.0 0.35" rpy="0 0 0"/>
+  <parent link="link2_1"/>
+  <child link="link3_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="joint4" type="continuous">
+  <origin xyz="0.001 0.0 0.32" rpy="0 0 0"/>
+  <parent link="link3_1"/>
+  <child link="link4_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="joint5" type="continuous">
+  <origin xyz="0.055 0.0 0.046" rpy="0 0 0"/>
+  <parent link="link4_1"/>
+  <child link="link5_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="joint6" type="continuous">
+  <origin xyz="0.046 0.0 0.055" rpy="0 0 0"/>
+  <parent link="link5_1"/>
+  <child link="link6_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="fixed_link5_camerabracket" type="fixed">
+  <origin xyz="0.05 0.0 0.095" rpy="0 0 0"/>
+  <parent link="link5_1"/>
+  <child link="camara_braket_v1_1"/>
+</joint>
+
+<joint name="fixed_rbracket_rmotor" type="fixed">
+  <origin xyz="-0.03 -0.01 -0.11" rpy="0 0 0"/>
+  <parent link="right_bracket_1"/>
+  <child link="right_motor_1"/>
+</joint>
+
+<joint name="fixed_lbracket_lmotor" type="fixed">
+  <origin xyz="-0.03 0.01 -0.11" rpy="0 0 0"/>
+  <parent link="left_bracket_1"/>
+  <child link="left_motor_1"/>
+</joint>
+
+<joint name="joint_right_wheel" type="continuous">
+  <origin xyz="0.0 -0.0299 0.0" rpy="0 0 0"/>
+  <parent link="right_motor_1"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="joint_left_wheel" type="continuous">
+  <origin xyz="0.0 0.0299 0.0" rpy="0 0 0"/>
+  <parent link="left_motor_1"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="fixed_mobile_lbracket" type="fixed">
+  <origin xyz="0.07 0.21 0.2185" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_bracket_1"/>
+</joint>
+
+<joint name="fixed_cbracket_depth" type="fixed">
+  <origin xyz="-0.0265 0.0225 0.0225" rpy="0 0 0"/>
+  <parent link="camara_braket_v1_1"/>
+  <child link="D435i_manipulator_1"/>
+</joint>
+
+<joint name="fixed_rpassive" type="fixed">
+  <origin xyz="-0.47 -0.21 0.2185" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rpassive_bracket_1"/>
+</joint>
+
+<joint name="fixed_lpassive" type="fixed">
+  <origin xyz="-0.47 0.21 0.2185" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lpassive_bracket_1"/>
+</joint>
+
+<joint name="joint_right_passive_connect" type="continuous">
+  <origin xyz="0.0 0.015 -0.0985" rpy="0 0 0"/>
+  <parent link="rpassive_bracket_1"/>
+  <child link="rpassive_connect_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="joint_left_passive_connect" type="continuous">
+  <origin xyz="0.0 -0.015 -0.0985" rpy="0 0 0"/>
+  <parent link="lpassive_bracket_1"/>
+  <child link="lpassive_connect_1"/>
+  <axis xyz="0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="joint_left_passive_wheel" type="continuous">
+  <origin xyz="-0.03 0.02 -0.07" rpy="0 0 0"/>
+  <parent link="lpassive_connect_1"/>
+  <child link="left_passive_wheel_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="joint_right_passive_wheel" type="continuous">
+  <origin xyz="-0.03 -0.02 -0.07" rpy="0 0 0"/>
+  <parent link="rpassive_connect_1"/>
+  <child link="right_passive_wheel_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="fixed_mobile_camera_bracket" type="fixed">
+  <origin xyz="0.2 0.0 0.7935" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="mobile_camera_bracket_1"/>
+</joint>
+
+<joint name="fixed_camera_bracket_camera" type="fixed">
+  <origin xyz="0.01 -0.0225 0.0" rpy="0 0 0"/>
+  <parent link="mobile_camera_bracket_1"/>
+  <child link="camera_link_1"/>
+</joint>
+
+<joint name="fixed_imu" type="fixed">
+  <origin xyz="-0.185 0.0 0.2485" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="imu_link_1"/>
+</joint>
+
+<joint name="joint_lidar" type="continuous">
+  <origin xyz="-0.2 0.0 0.5735" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_link_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="fixed_mobile_rbaracket" type="fixed">
+  <origin xyz="0.07 -0.21 0.2185" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_bracket_1"/>
+</joint>
+
+
+<joint name="fixed_mobile_manipulator" type="fixed">
+  <origin xyz="0.0 0.0 0.8135" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="manipulator_base_link_1"/>
+</joint>
+
+<link name="camera_link"/>
+<joint name="realsense_to_urdf_camera_link" type="fixed">
+  <parent link="camera_link_1"/> 
+  <child link="camera_link"/> 
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+</joint>
+
+
+<link name="camera_gyro_frame"/>
+<joint name="9250_to_urdf_imu_link" type="fixed">
+  <parent link="camera_link"/>
+  <child link="camera_gyro_frame"/> 
+  <origin xyz="0 0 -0.79" rpy="0 0 0"/>
+</joint>
+
+<link name="laser"/>
+<joint name="laser_to_urdf_lidar_link" type="fixed">
+  <parent link="lidar_link_1"/>
+  <child link="laser"/>
+  <origin xyz="0 0 0.0" rpy="0 0 0"/>
+</joint>
+
+
+<link name="base_footprint"/>
+<joint name="baselink_to_basefoorprint" type="fixed">
+  <parent link="base_footprint"/>
+  <child link="base_link"/>
+  <origin xyz="-0.04 0 0" rpy="0 0 0"/>
+</joint>
+
+
+
+</robot>

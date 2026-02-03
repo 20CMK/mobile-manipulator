@@ -1,0 +1,19 @@
+<launch>
+  <!-- Navigation -->
+  <node pkg="move_base" type="move_base" name="move_base" output="screen">
+
+    <!-- 실행 주기 및 인내 시간 -->
+    <param name="controller_frequency" value="10.0"/>
+    <param name="controller_patience"  value="5.0"/>
+
+    <!-- Costmap 및 Planner 파라미터 로드 -->
+    <rosparam file="$(find manipulator_mobile_navigation)/config/costmap_common_params.yaml" command="load"/>
+    <rosparam file="$(find manipulator_mobile_navigation)/config/global_costmap_params.yaml" command="load"/>
+    <rosparam file="$(find manipulator_mobile_navigation)/config/local_costmap_params.yaml"  command="load"/>
+    <rosparam file="$(find manipulator_mobile_navigation)/config/base_local_planner_params.yaml" command="load"/>
+    <rosparam file="$(find manipulator_mobile_navigation)/config/global_planner_params.yaml" command="load"/>
+
+    <!-- 센서 리맵 -->
+    <remap from="scan" to="/scan"/>
+  </node>
+</launch>

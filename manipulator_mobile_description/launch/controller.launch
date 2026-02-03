@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find manipulator_mobile_description)/launch/controller.yaml" command="load"/>
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="manipulator_mobile" args="joint1_position_controller joint2_position_controller joint3_position_controller joint4_position_controller joint5_position_controller joint6_position_controller joint_right_wheel_position_controller joint_left_wheel_position_controller joint_right_passive_connect_position_controller joint_left_passive_connect_position_controller joint_left_passive_wheel_position_controller joint_right_passive_wheel_position_controller joint_lidar_position_controller joint_state_controller "/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/manipulator_mobile/joint_states"/>
+</node>
+
+</launch>

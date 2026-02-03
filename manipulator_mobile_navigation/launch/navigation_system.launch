@@ -1,0 +1,22 @@
+<launch>
+  <!-- 1. RealSense Depth Camera -->
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch" />
+
+  <!-- 2. RPLiDAR -->
+  <include file="$(find rplidar_ros)/launch/rplidar_a2m12.launch" />
+
+  
+  <!-- 4. Move Base (Costmap, Navigation) -->
+  <include file="$(find manipulator_mobile_navigation)/launch/move_base.launch" />
+  
+  <!-- 3. Cartographer SLAM -->
+  <!-- slam_ws의 install_isolated/setup.bash를 source 해야 이 패키지 인식 가능 -->
+  <include file="$(find cartographer_ros)/launch/my_robot_localization.launch" />
+  <!-- <include file="$(find cartographer_ros)/launch/my_robot.launch" /> -->
+    
+
+
+
+  <!-- 5. Display URDF and TF -->
+  <!--<include file="$(find manipulator_mobile_description)/launch/display.launch" />-->
+</launch>

@@ -1,0 +1,21 @@
+<launch>
+  <!-- RealSense depth camera 노드 실행은 이미 별도로 하고 있다고 가정 -->
+
+  <!-- Cartographer SLAM 노드 -->
+  <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" output="screen"
+        args="-configuration_directory $(find cartographer_ros)/configuration_files
+              -configuration_basename my_robot.lua">
+    <remap from="scan" to="/scan"/>
+    <remap from="/imu" to="/camera/imu"/>
+    <!-- <remap from="imu" to="/camera/imu"/> -->
+
+    
+  </node>
+
+  <!-- Occupancy Grid Map 노드 -->
+  <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros" type="cartographer_occupancy_grid_node" output="screen">
+    <param name="resolution" value="0.05"/>
+    <param name="publish_period_sec" value="1.0"/>
+  </node>
+
+</launch>

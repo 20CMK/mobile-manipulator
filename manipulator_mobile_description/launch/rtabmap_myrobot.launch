@@ -1,0 +1,32 @@
+<launch>
+  <!-- Nodelet manager -->
+  <node pkg="nodelet" type="nodelet" name="rtabmap_nodelet_manager" args="manager" output="screen"/>
+
+  <!-- RTAB-Map core nodelet -->
+  <node pkg="nodelet" type="nodelet" name="rtabmap" args="load rtabmap_ros/rtabmap rtabmap_nodelet_manager" output="screen">
+    <param name="frame_id" value="base_link"/>
+    <param name="subscribe_rgb" value="true"/>
+    <param name="subscribe_depth" value="true"/>
+    <param name="subscribe_scan" value="true"/>
+    <param name="subscribe_imu" value="true"/>
+    <remap from="rgb/image" to="/camera/color/image_raw"/>
+    <remap from="depth/image" to="/camera/depth/image_rect_raw"/>
+    <remap from="rgb/camera_info" to="/camera/color/camera_info"/>
+    <remap from="scan" to="/scan"/>
+    <remap from="imu" to="/imu/data"/>
+  </node>
+
+  <!-- RTAB-Map visualization nodelet -->
+  <node pkg="nodelet" type="nodelet" name="rtabmapviz" args="load rtabmap_ros/rtabmapviz rtabmap_nodelet_manager" output="screen">
+    <param name="frame_id" value="base_link"/>
+    <param name="subscribe_rgb" value="true"/>
+    <param name="subscribe_depth" value="true"/>
+    <param name="subscribe_scan" value="true"/>
+    <param name="subscribe_imu" value="true"/>
+    <remap from="rgb/image" to="/camera/color/image_raw"/>
+    <remap from="depth/image" to="/camera/depth/image_rect_raw"/>
+    <remap from="rgb/camera_info" to="/camera/color/camera_info"/>
+    <remap from="scan" to="/scan"/>
+    <remap from="imu" to="/imu/data"/>
+  </node>
+</launch>

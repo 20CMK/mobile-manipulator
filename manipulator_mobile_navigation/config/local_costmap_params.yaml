@@ -1,0 +1,140 @@
+# local_costmap:
+#   # 로컬 costmap의 기준 좌표 프레임
+#   global_frame: odom  # 로봇의 위치를 상대적으로 추정하는 odometry 좌표계 기준
+
+#   # 로봇의 기준 프레임 (센서 기준 또는 로봇 중심점 기준)
+#   robot_base_frame: base_link
+
+#   # costmap을 갱신하는 주기 (Hz) - 센서 데이터로부터 costmap 업데이트
+#   update_frequency: 5.0
+
+#   # costmap을 퍼블리시하는 주기 (Hz) - RViz 등에 전달하는 주기
+#   publish_frequency: 2.0
+
+#   # TF 변환 대기 허용 시간 (초) - TF 딜레이에 대한 허용 범위
+#   transform_tolerance: 0.5
+
+#   # 로봇이 이동할 때 costmap이 따라 움직이도록 설정
+#   rolling_window: true
+
+#   # 로컬 costmap의 가로 크기 (미터)
+#   width: 3.0
+
+#   # 로컬 costmap의 세로 크기 (미터)
+#   height: 3.0
+
+#   # costmap의 해상도 (미터/셀) - 작을수록 정밀도는 높지만 계산량 증가
+#   resolution: 0.04
+
+#   # 사용할 costmap plugin 목록
+#   plugins:
+#     - {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}     # 장애물 레이어 (센서 기반)
+#     - {name: inflation_layer, type: "costmap_2d::InflationLayer"}   # 팽창 레이어 (장애물 주변 buffer zone)
+
+#   # 장애물 레이어 설정
+#   obstacle_layer:
+#     enabled: true                 # 해당 레이어 활성화
+#     obstacle_range: 3.0          # 장애물을 감지할 최대 거리 (m)
+#     raytrace_range: 3.5          # 장애물 제거를 위한 최대 거리 (m) - 레이 트레이싱 사용
+#     track_unknown_space: true    # 미탐색 영역(unknown)을 장애물로 간주할지 여부
+#     combination_method: 1        # 여러 센서에서 얻은 정보를 통합하는 방식 (1: 최대값)
+#     unknown_threshold: 15        # unknown 셀로 판단하기 위한 임계값 (보통 사용 안 함)
+#     mark_threshold: 0            # 장애물로 마킹할 최소 관측 횟수
+#     transform_tolerance: 0.5     # TF 변환 허용 오차
+#     observation_sources: scan    # 센서 이름 지정 (여러 개 가능: "scan depth_camera" 등)
+
+#     scan:
+#       sensor_frame: laser        # 센서의 좌표 프레임 (TF에서 확인 가능)
+#       data_type: LaserScan       # 센서 데이터 타입
+#       topic: /scan               # 센서 데이터가 퍼블리시되는 ROS 토픽
+#       marking: true              # 장애물을 표시할지 여부
+#       clearing: true             # 장애물 제거(클리어링) 활성화 (예: 물체가 없어졌을 때)
+#       inf_is_valid: true         # inf 값(LiDAR 최대 거리 등)을 유효값으로 간주
+
+#   # 팽창 레이어 설정 (장애물 주변을 buffer로 설정)
+#   inflation_layer:
+#     enabled: true
+#     inflation_radius: 0.16        # 장애물 주변 팽창 거리 (m) - 장애물에 가까이 가지 않게 하기 위한 여유 공간
+#     cost_scaling_factor: 0.4     # 거리당 비용 감소 속도 - 클수록 급격히 감소
+
+
+
+
+
+local_costmap:
+  global_frame: odom
+  robot_base_frame: base_link
+  update_frequency: 5.0
+  publish_frequency: 2.0
+  transform_tolerance: 0.5
+  rolling_window: true
+  width: 3.0
+  height: 3.0
+  resolution: 0.04
+
+  plugins:
+    - {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}
+    - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
+
+  obstacle_layer:
+    enabled: true
+    obstacle_range: 2.0
+    raytrace_range: 2.5
+    track_unknown_space: false
+    combination_method: 1
+    mark_threshold: 0
+    transform_tolerance: 0.5
+    observation_sources: scan
+
+    scan:
+      sensor_frame: laser
+      data_type: LaserScan
+      topic: /scan
+      marking: true
+      clearing: true
+      inf_is_valid: true
+
+  inflation_layer:
+    enabled: true
+    inflation_radius: 0.1
+    cost_scaling_factor: 1.5
+
+
+# local_costmap:
+#   global_frame: odom
+#   robot_base_frame: base_link
+#   update_frequency: 5.0
+#   publish_frequency: 2.0
+#   transform_tolerance: 0.5
+
+#   rolling_window: true
+#   width: 3.0
+#   height: 3.0
+#   resolution: 0.05
+
+#   plugins:
+#     - {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}
+#     - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
+
+#   obstacle_layer:
+#     enabled: true
+#     obstacle_range: 3.0
+#     raytrace_range: 3.5
+#     track_unknown_space: true
+#     combination_method: 1
+#     unknown_threshold: 15
+#     mark_threshold: 0
+#     transform_tolerance: 0.5
+#     observation_sources: scan
+#     scan:
+#       sensor_frame: laser
+#       data_type: LaserScan
+#       topic: /scan
+#       marking: true
+#       clearing: true
+#       inf_is_valid: true
+
+#   inflation_layer:
+#     enabled: true
+#     inflation_radius: 0.1
+#     cost_scaling_factor: 1.0
