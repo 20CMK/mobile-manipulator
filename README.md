@@ -27,7 +27,10 @@
 - cartographer
   - 해당 Package는 별도 ws에 빌드
   - 설치 후 slam_file의 file 추가
-
+```
+# 자율주행과 함께 사용할 경우, tf 충돌 방지를 위해 멀티 core 사용
+roscore -p 11311
+```
 ```
 # terminal 1
 roslaunch manipulator_moveit_config test.launch
@@ -52,15 +55,24 @@ rosrun rosserial_python serial_node.py /dev/ttyACM* __name:=rosserial_stm32
 ```
 udev-rule 설정으로 포트 이름 지정 가능
 
-mcu 코드가 업로드 되어있어야 함 (mcu_code 참조)
+mcu 제어 코드 업로드 (mcu_code 참조)
 
 
 
 ## 자율주행
 ```
+roscore -p 11312
+```
+```
+# Sensor Topic Node 실행
+roslaunch realsense-ros rs_camera.launch
+roslaunch rplidar rplidar_a2m12.launch
+```
+```
 #SLAM
 roslaunch cartographer-ros my_robot.launch
-
+```
+```
 #Navigation
 roslaunch manipulator_mobile_description display.launch
 roslaunch cartographer-ros my_robot_localization.launch
@@ -68,11 +80,27 @@ roslaunch manipulator_mobile_navigation move_base.launch
 ```
 주의사항
 
+- realsense의 imu 토픽 발행 설정 및 tf 확인
 - Navigation
   - cartographer-ros 패키지와 다른 패키지의 ws가 다름을 유의하여 빌드 및 setup 후 launch 진행
 
 
 
+## Topic 공유
+```
+# roscore 11312
+rosrun fkie_master_discovery master_discovery
+
+# roscore 11311
+rosrun fkie_master_discovery master_discovery
+rosparam set /master_sync/sync_topics "['/camera/pick_image']"  #
+rosrun fkie_master_sync master_sync
+```
 
 [cartographer]([https://google-cartographer.readthedocs.io/en/latest/](https://google-cartographer-ros.readthedocs.io/en/latest/compilation.html))
 [cartographer-git](https://github.com/cartographer-project/cartographer_ros)
+
+
+
+## 문제 해결
+
